@@ -1,0 +1,3 @@
+main {
+  console.print("Hello World!");
+}
