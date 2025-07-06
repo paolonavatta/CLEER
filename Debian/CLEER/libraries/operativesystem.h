@@ -75,19 +75,11 @@ std::string pwd() {
 }
 
 void start(const std::string& path) {
-
     std::string command;
-    
-        #ifdef _WIN32
-            command = "start \"\" \"" + path + "\"";
-        #elif __APPLE__  // macOS
-            command = "open \"" + path + "\"";
-        #else
-            command = "xdg-open \"" + path + "\"";
-        #endif
-
+    command = "xdg-open \"" + path + "\"";
     std::system(command.c_str());
 }
+
 
 
 
@@ -95,14 +87,6 @@ void command(const std::string& command) {
     std::system(command.c_str());
 }
 
-bool kill(pid_t pid, int signal) {
-    if (kill(pid, signal) == 0) {
-        return true;  // Il segnale è stato inviato con successo
-    } else {
-        // Gestisci l'errore se la chiamata a kill fallisce
-        return false;
-    }
-}
 
 std::uintmax_t size(const std::string& filePath) {
     std::filesystem::path path(filePath);
