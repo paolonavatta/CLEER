@@ -5,8 +5,12 @@
   </p>
 
   <p align="center">
-CLEER is a general-purpose programming language that offers a similar syntax to C++, but is designed to be more intuitive and clear. The name CLEER was born as an assonance of the word "Clear", highlighting the programming language's clarity. However, it can also be seen as a construct made using the letter C (since the language is entirely based on C) and LEER (which is the Spanish word for "read"): a readable C.
+CLEER is a general-purpose programming language that offers a similar syntax to C++, but is designed to be more intuitive and clear. The name CLEER was born as an assonance of the word "Clear", highlighting the programming language's clarity.
   </p>
+
+  <p align="center">
+ <strong>For full documentation, please see <a href="documentation.pdf">documentation.pdf</a> in this repository.</strong>
+</p>
 
 <br>
 <br>
