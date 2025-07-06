@@ -9,7 +9,7 @@ CLEER is a general-purpose programming language that offers a similar syntax to 
   </p>
 
   <p align="center">
- <strong>For full documentation, please see <a href="documentation.pdf">documentation.pdf</a> in this repository.</strong>
+ <strong>For full documentation, please see <a href="Documentation.pdf">Documentation.pdf</a> in this repository.</strong>
 </p>
 
 <br>
