@@ -1,7 +1,8 @@
-<h1 align="center">CLEER</h1>
+<div align="center"><img width="130" height="130" alt="logo" src="https://github.com/user-attachments/assets/0b8fa96d-2216-434e-a7eb-b53449a3a340" /> </div>
+<br>
   <p align="center">
-    <img alt="Version: Beta" src="https://img.shields.io/badge/Version%20-%20%20beta%20-%20black">
-    <img alt="License: GNU 3.0" src="https://img.shields.io/badge/License%20%20-%20%20GNU%203.0%20-%20%23800300">
+    <img alt="Version: Beta" src="https://img.shields.io/badge/Version%20-%20beta%20-%20black?style=flat-square">
+    <img alt="License: GNU 3.0" src="https://img.shields.io/badge/License%20-%20GNU%203.0%20-%20%238B0000?style=flat-square">
   </p>
 
   <p align="center">
@@ -16,46 +17,40 @@ CLEER is a general-purpose programming language that offers a similar syntax to 
 <br>
 <br>
 
-<h2 align="center">Download</h2>
+## <p align="center">📥 Download</p>
 
-### Using Git:
+### <p align="center">🐈 Using GIT</p>
 
 ```bash
 git clone https://github.com/paolonavatta/CLEER.git
 ```
 
 <br>
-<br>
 
+### <p align="center">🐂 Using WGET</p>
 
-### Using Wget:
-
-<h4 align="center">.zip</h4>
+<p align="center">.zip</p>
 
 ```bash
 wget https://github.com/paolonavatta/CLEER/archive/main.zip 
 ```
 
-<br>
-
-<h4 align="center">.tgz</h4>
+<p align="center">.tgz</p>
 
 ```bash
 wget https://github.com/paolonavatta/CLEER/archive/main.tar.gz
 ```
-<br>
+
 <br>
 
-### Using cURL:
-<h4 align="center">.zip</h4>
+### <p align="center">🌐 Using cURL</p>
+<p align="center">.zip</p>
 
 ```bash
 curl -L -O https://github.com/paolonavatta/CLEER/archive/main.zip 
 ```
 
-<br>
-
-<h4 align="center">.tgz</h4>
+<p align="center">.tgz</p>
 
 ```bash
 curl -L -O https://github.com/paolonavatta/CLEER/archive/main.tar.gz
@@ -64,34 +59,31 @@ curl -L -O https://github.com/paolonavatta/CLEER/archive/main.tar.gz
 <br>
 <br>
 
-<h2 align="center">Installation</h2>
+<h2 align="center">📦 Setup</h2>
 
 ### Debian:
 
-1. Open the terminal and navigate to the Debian folder
-2. Run the following commands: 
+1. Open the terminal and navigate to CLEER's Debian folder
+2. Make the installer script executable: 
 ```bash
-chmod +x installer.sh 
+sudo chmod +x installer.sh 
 ```
-<br>
-
+3. Run the installer script:
 ```bash
 sudo ./installer.sh 
 ```
 
 <br>
 <br>
-<br>
 
-<h2 align="center">Help</h2>
+<h2 align="center">❓ Help</h2>
 
-<p align="center">Compile .cleer file:</p>
+<p align="center">Compile a .cleer file:</p>
 
 ```bash
 cleer file.cleer
 ```
 
-<br>
 <br>
 
 <p align="center">Display the help message: </p>
@@ -101,9 +93,8 @@ cleer --help
 ```
 
 <br>
-<br>
 
-<p align="center">Display current CLEER’s current version: </p>
+<p align="center">Display CLEER’s current version: </p>
 
 ```bash
 cleer --version
