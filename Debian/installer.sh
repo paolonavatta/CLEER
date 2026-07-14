@@ -17,7 +17,7 @@ function print_message() {
 ln -s cleer.sh cleer
 
 # Copy files in usr/local/bin
-print_message "Copying files in usr/local/bin..."
+print_message "Copying files in usr/local/bin..."a
 for entry in *; do
   if [ "$entry" != "$script_name" ]; then
     cp -r "$entry" "$destination"
