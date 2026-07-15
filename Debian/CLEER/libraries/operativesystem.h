@@ -69,10 +69,20 @@ void create(const std::string& filename) {
     }
 }
 
+// Cat Function (alias for read)
+std::string cat(const std::string& filename) {
+    return read(filename);
+}
+
 // pwd Function
 std::string pwd() {
     std::filesystem::path path = std::filesystem::current_path();
     return path.string();
+}
+
+// Touch Function (alias for create)
+void touch(const std::string& filename) {
+    create(filename);
 }
 
 // Start Function
