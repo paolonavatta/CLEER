@@ -25,6 +25,14 @@ for entry in *; do
 done
 
 
+# Check if xdg-utils is installed, and install if not
+if ! command -v xdg-icon-resource &> /dev/null || ! command -v xdg-mime &> /dev/null; then
+  print_message "xdg-utils not found. Installing xdg-utils..."
+  sudo apt-get update
+  sudo apt-get install -y xdg-utils
+  print_message "xdg-utils installed successfully."
+fi
+
 # Icon path
 icon_path="/usr/local/bin/CLEER/assets/ubuntu-logo.png"
 
@@ -67,7 +75,6 @@ if ! command -v gcc &> /dev/null; then
 fi
 
 # Make Cleer executable
-
 chmod +x "$destination/cleer.sh"
 sudo ln -sf "$destination/cleer.sh" /usr/local/bin/cleer
 chmod +x /usr/local/bin/cleer
