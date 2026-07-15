@@ -1,102 +1,211 @@
-<div align="center"><img width="130" height="130" alt="logo" src="https://github.com/user-attachments/assets/0b8fa96d-2216-434e-a7eb-b53449a3a340" /> </div>
-<br>
-  <p align="center">
-    <img alt="Version: Beta" src="https://img.shields.io/badge/Version%20-%20beta%20-%20black?style=flat-square">
-    <img alt="License: GNU 3.0" src="https://img.shields.io/badge/License%20-%20GNU%203.0%20-%20%238B0000?style=flat-square">
-  </p>
+<div align="center">
 
-  <p align="center">
-CLEER is a general-purpose programming language that offers a similar syntax to C++, but is designed to be more intuitive and clear. The name CLEER was born as an assonance of the word "Clear", highlighting the programming language's clarity.
-  </p>
+<img width="160" height="160" alt="CLEER Logo" src="https://github.com/user-attachments/assets/0b8fa96d-2216-434e-a7eb-b53449a3a340" />
 
-  <p align="center">
- <strong>For full documentation, please see <a href="Documentation.pdf">Documentation.pdf</a> in this repository.</strong>
-</p>
+# CLEER Programming Language
+
+### An unusually clear programming language
 
 <br>
-<br>
+
+<img alt="Version" src="https://img.shields.io/badge/version-beta-111111?style=for-the-badge&logo=git">
+<img alt="License" src="https://img.shields.io/badge/license-GNU%203.0-8B0000?style=for-the-badge">
+<img alt="Language" src="https://img.shields.io/badge/language-CLEER-0066FF?style=for-the-badge">
+<img alt="Platform" src="https://img.shields.io/badge/platform-Linux-success?style=for-the-badge">
+
+<br><br>
+
+</div>
+
+---
+
+<div align="center">
+
+## About CLEER
+
+</div>
+
+CLEER is a **general-purpose programming language** designed around the principles of:
+
+- **Clarity** — readable syntax and explicit language design
+- **Simplicity** — reducing unnecessary complexity found in traditional systems languages
+- **Performance** — maintaining a low-level programming approach based on C++
+
+The language syntax relies on **C++** conventions, while introducing a neater approach to programming.
+
+The name **CLEER** originates from an assonance with the word **"Clear"**, representing the core philosophy behind the language:
+
+> Write software that is visually cleaner.
+
 <br>
 
-## <p align="center">📥 Download</p>
+<div align="center">
 
-### <p align="center">🐈 Using GIT</p>
+📚 **Complete technical documentation:**
+
+[Documentation.pdf](Documentation.pdf)
+
+</div>
+
+---
+<div align="center">
+  
+# 🚀 Installation & Download
+
+</div>
+
+## 📦 Clone Repository
+
+The recommended way to obtain CLEER is through Git:
 
 ```bash
 git clone https://github.com/paolonavatta/CLEER.git
+
+cd CLEER
 ```
 
-<br>
+---
 
-### <p align="center">🐂 Using WGET</p>
+## 🌐 Download Archives
 
-<p align="center">.zip</p>
+### ZIP Archive
 
 ```bash
-wget https://github.com/paolonavatta/CLEER/archive/main.zip 
+wget https://github.com/paolonavatta/CLEER/archive/main.zip
 ```
 
-<p align="center">.tgz</p>
+### TAR.GZ Archive
 
 ```bash
 wget https://github.com/paolonavatta/CLEER/archive/main.tar.gz
 ```
 
-<br>
+---
 
-### <p align="center">🌐 Using cURL</p>
-<p align="center">.zip</p>
+## ⚡ Using cURL
+
+### ZIP Archive
 
 ```bash
-curl -L -O https://github.com/paolonavatta/CLEER/archive/main.zip 
+curl -L -O https://github.com/paolonavatta/CLEER/archive/main.zip
 ```
 
-<p align="center">.tgz</p>
+### TAR.GZ Archive
 
 ```bash
 curl -L -O https://github.com/paolonavatta/CLEER/archive/main.tar.gz
 ```
 
-<br>
-<br>
+---
+<div align="center">
+  
+# 🛠️ Setup
 
-<h2 align="center">📦 Setup</h2>
+</div>
 
-### Debian:
+## Debian / Ubuntu
 
-1. Open the terminal and navigate to CLEER's Debian folder
-2. Make the installer script executable: 
+Navigate to the Debian installer directory:
+
 ```bash
-sudo chmod +x installer.sh 
-```
-3. Run the installer script:
-```bash
-sudo ./installer.sh 
+cd CLEER/Debian
 ```
 
-<br>
-<br>
+Make the installer executable:
 
-<h2 align="center">❓ Help</h2>
+```bash
+sudo chmod +x installer.sh
+```
 
-<p align="center">Compile a .cleer file:</p>
+Run the installation process:
+
+```bash
+sudo ./installer.sh
+```
+
+After installation, the `cleer` compiler will be available system-wide.
+
+---
+
+<div align="center">
+  
+# 💻 Command Line Interface
+
+</div>
+
+CLEER includes a lightweight compiler interface for building and managing CLEER programs.
+
+## Compile a Source File
+
+Compile a `.cleer` source file:
 
 ```bash
 cleer file.cleer
 ```
 
-<br>
+Example:
 
-<p align="center">Display the help message: </p>
+```bash
+cleer hello_world.cleer
+```
+
+---
+
+## Display Help Information
+
+Show available compiler commands and options:
 
 ```bash
 cleer --help
 ```
 
-<br>
+---
 
-<p align="center">Display CLEER’s current version: </p>
+## Display Version
+
+Check the installed CLEER compiler version:
 
 ```bash
 cleer --version
 ```
 
+---
+
+<div align="center">
+  
+# 🧬 Language Philosophy
+
+</div>
+CLEER aims to combine the control of traditional systems programming with a cleaner development experience.
+
+| Traditional Systems Languages | CLEER |
+| ----------------------------- | ----- |
+| Complex syntax patterns | Clear and readable structures |
+| Steep learning curve | Intuitive programming model |
+| Verbose code | Simplified expression |
+| Low-level control only | Modern programming ergonomics |
+
+---
+
+<div align="center">
+  
+# 🤝 Contributing
+
+</div>
+
+Contributions, suggestions, and improvements are welcome.
+
+If you want to help improve CLEER:
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Open a Pull Request
+
+---
+
+<div align="center">
+
+**CLEER — Write clearer code.**
+
+</div>
