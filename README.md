@@ -4,7 +4,7 @@
 
 # CLEER Programming Language
 
-### A modern, expressive, and intuitive programming language inspired by C++
+### An unusually clear programming language
 
 <br>
 
@@ -21,7 +21,7 @@
 
 <div align="center">
 
-## ✨ About CLEER
+## About CLEER
 
 </div>
 
@@ -29,14 +29,13 @@ CLEER is a **general-purpose programming language** designed around the principl
 
 - **Clarity** — readable syntax and explicit language design
 - **Simplicity** — reducing unnecessary complexity found in traditional systems languages
-- **Performance** — maintaining a low-level programming approach inspired by C++
-- **Developer Experience** — providing a cleaner and more intuitive workflow
+- **Performance** — maintaining a low-level programming approach based on C++
 
-The language syntax takes inspiration from **C++**, while introducing a more accessible and structured approach to programming.
+The language syntax relies on **C++** conventions, while introducing a neater approach to programming.
 
 The name **CLEER** originates from an assonance with the word **"Clear"**, representing the core philosophy behind the language:
 
-> Write software that is easier to understand, maintain, and evolve.
+> Write software that is visually cleaner.
 
 <br>
 
@@ -49,8 +48,11 @@ The name **CLEER** originates from an assonance with the word **"Clear"**, repre
 </div>
 
 ---
-
+<div align="center">
+  
 # 🚀 Installation & Download
+
+</div>
 
 ## 📦 Clone Repository
 
@@ -95,8 +97,11 @@ curl -L -O https://github.com/paolonavatta/CLEER/archive/main.tar.gz
 ```
 
 ---
-
+<div align="center">
+  
 # 🛠️ Setup
+
+</div>
 
 ## Debian / Ubuntu
 
@@ -122,11 +127,13 @@ After installation, the `cleer` compiler will be available system-wide.
 
 ---
 
+<div align="center">
+  
 # 💻 Command Line Interface
 
-CLEER includes a lightweight compiler interface for building and managing CLEER programs.
+</div>
 
----
+CLEER includes a lightweight compiler interface for building and managing CLEER programs.
 
 ## Compile a Source File
 
@@ -164,8 +171,11 @@ cleer --version
 
 ---
 
+<div align="center">
+  
 # 🧬 Language Philosophy
 
+</div>
 CLEER aims to combine the control of traditional systems programming with a cleaner development experience.
 
 | Traditional Systems Languages | CLEER |
@@ -177,29 +187,11 @@ CLEER aims to combine the control of traditional systems programming with a clea
 
 ---
 
-# 📖 Documentation
-
-The official documentation contains detailed information about:
-
-- Language syntax
-- Compiler architecture
-- Type system
-- Keywords
-- Standard library
-- Examples
-- Development roadmap
-
-Access it here:
-
 <div align="center">
-
-📘 [CLEER Technical Documentation](Documentation.pdf)
+  
+# 🤝 Contributing
 
 </div>
-
----
-
-# 🤝 Contributing
 
 Contributions, suggestions, and improvements are welcome.
 
@@ -214,12 +206,6 @@ If you want to help improve CLEER:
 
 <div align="center">
 
-## ⭐ Support CLEER
-
-If you find the project interesting, consider starring the repository.
-
-<br>
-
-**CLEER — Write code that stays clear.**
+**CLEER — Write clearer code.**
 
 </div>
