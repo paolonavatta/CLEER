@@ -67,8 +67,48 @@ function change_var_uninitialized() {
 
 function change_main() {
     local modified_content
-    modified_content=$(sed -e 's/main/int main()/' <<< "$1")
+    # Only touch standalone "main" tokens
+    modified_content=$(sed -E 's/\bmain(\s*\()/int main\1/; t; s/\bmain\b/int main()/' <<< "$1")
     echo "$modified_content"
+}
+
+function report_compile_errors() {
+    local raw_output="$1"
+    local cpp_path="$2"
+    local cleer_path="$3"
+    local cleer_name
+    cleer_name=$(basename "$cleer_path")
+
+    # Escape regex metacharacters in the cpp path so it's safe to match literally
+    local cpp_path_escaped
+    cpp_path_escaped=$(printf '%s' "$cpp_path" | sed 's/[][\.^$*+?(){}|/]/\\&/g')
+
+    echo "CLEER compile error in ${cleer_name}:"
+    echo ""
+
+    while IFS= read -r line; do
+        if [[ "$line" =~ ^${cpp_path_escaped}:([0-9]+):([0-9]+):\ (error|warning|note):\ (.*)$ ]]; then
+            local cpp_line="${BASH_REMATCH[1]}"
+            local level="${BASH_REMATCH[3]}"
+            local msg="${BASH_REMATCH[4]}"
+            local cleer_line=$((cpp_line - 1))
+            local src_line=""
+            if [ "$cleer_line" -ge 1 ]; then
+                src_line=$(sed -n "${cleer_line}p" "$cleer_path")
+            fi
+            echo "  ${cleer_name}:${cleer_line}: ${level}: ${msg}"
+            if [ -n "$src_line" ]; then
+                echo "      ${src_line}"
+            fi
+        elif [[ "$line" == *"$cpp_path"* ]]; then
+            # Raw pointer into the generated .cpp with no line/col
+            continue
+        elif [[ "$line" =~ ^[[:space:]]*[0-9]+[[:space:]]*\| ]] || [[ "$line" =~ ^[[:space:]]*\| ]]; then
+            continue
+        else
+            echo "  $line"
+        fi
+    done <<< "$raw_output"
 }
 
 function modify_cleer_file() {
@@ -105,8 +145,14 @@ function modify_cleer_file() {
     # Compiling command
     compile_command="g++ -std=c++17 -I ${directory}/include ${new_file_path} -L${directory}/lib -Wl,-rpath,${directory}/lib -L/usr/local/bin/CLEER/lib -lcleer -o ${directory}/${exe_file}"
 
-    # Execute the compiling command
-    eval "$compile_command"
+    local compile_output
+    compile_output=$(eval "$compile_command" 2>&1)
+    local compile_status=$?
+
+    if [ "$compile_status" -ne 0 ]; then
+        report_compile_errors "$compile_output" "$new_file_path" "$cleer_file_path"
+        return 1
+    fi
 
     # Execute the file in the terminal
     executable_path="${directory}/${exe_file}"
@@ -114,5 +160,7 @@ function modify_cleer_file() {
 }
 
 modify_cleer_file "$(basename "$cleer_file_path")"
-# Remove the main.cleer.cpp file
-rm "${cleer_file_path}.cpp"
+compile_result=$?
+# Remove the main.cleer.cpp file regardless of success or failure
+rm -f "${cleer_file_path}.cpp"
+exit $compile_result
