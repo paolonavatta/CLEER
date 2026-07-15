@@ -57,6 +57,13 @@ function change_write() {
     echo "$modified_content"
 }
 
+function change_var_uninitialized() {
+    local modified_content
+    # "var name;" initializer to deduce a type from.
+    modified_content=$(sed -E 's/var[[:space:]]+([A-Za-z_][A-Za-z0-9_]*)[[:space:]]*;/cleer::string \1;/' <<< "$1")
+    echo "$modified_content"
+}
+
 function change_main() {
     local modified_content
     modified_content=$(sed -e 's/main/int main()/' <<< "$1")
@@ -81,6 +88,9 @@ function modify_cleer_file() {
 
     # Change "write" statements
     modified_content=$(change_write "$modified_content")
+
+    # Give uninitialized "var x;" a concrete type instead of "auto x;"
+    modified_content=$(change_var_uninitialized "$modified_content")
 
     # Change "main" with "int main()"
     modified_content=$(change_main "$modified_content")

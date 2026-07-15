@@ -8,8 +8,6 @@ script_name="installer.sh"
 
 # Clear the line and print the new message
 function print_message() {
-  tput cuu1  # Move cursor up by 1 line
-  tput el    # Clear the line
   echo "$1"
 }
 

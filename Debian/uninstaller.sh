@@ -7,8 +7,6 @@ icon_dest="/usr/share/icons/hicolor/48x48/mimetypes/cleer-icon.png"
 mime_file="/usr/share/mime/packages/cleer-mime.xml"
 
 function print_message() {
-  tput cuu1  # Move cursor up by 1 line
-  tput el    # Clear the line
   echo "$1"
 }
 
