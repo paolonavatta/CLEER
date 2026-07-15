@@ -37,7 +37,8 @@ directory=$(dirname "$cleer_file_path")
 
 function change_includes() {
     local modified_content
-    modified_content=$(sed -e 's/#include <os>/#include "\/usr\/local\/bin\/CLEER\/libraries\/operativesystem.h"/' <<< "$1")
+    # Accept "#include<os>" and "#include <os>".
+    modified_content=$(sed -E 's/#include[[:space:]]*<os>/#include "\/usr\/local\/bin\/CLEER\/libraries\/operativesystem.h"/' <<< "$1")
     echo "$modified_content"
 }
 
