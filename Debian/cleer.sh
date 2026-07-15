@@ -143,7 +143,7 @@ function modify_cleer_file() {
     echo "$modified_content" >> "$new_file_path"
 
     # Compiling command
-    compile_command="g++ -std=c++17 -I ${directory}/include ${new_file_path} -L${directory}/lib -Wl,-rpath,${directory}/lib -L/usr/local/bin/CLEER/lib -lcleer -o ${directory}/${exe_file}"
+    compile_command="g++ -std=c++17 -I ${directory}/include ${new_file_path} -o ${directory}/${exe_file}"
 
     local compile_output
     compile_output=$(eval "$compile_command" 2>&1)

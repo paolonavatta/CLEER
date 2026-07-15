@@ -5,7 +5,6 @@
 #include <thread>
 #include <filesystem>
 #include "../libraries/operativesystem.h"
-#include "../string.h"
 
 #include <iostream>
 #include <string>
