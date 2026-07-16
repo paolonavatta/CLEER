@@ -5,6 +5,10 @@
 # Set the base path for the system
 base_path="/usr/local/bin/CLEER"
 
+# tmp for alises
+alias_file="/tmp/cleer_aliases"
+> "$alias_file"
+
 # Check if a .cleer file is provided as an argument
 if [ -z "$1" ]; then
   echo "CLEER 0.0.1 - beta"
@@ -36,23 +40,52 @@ fi
 directory=$(dirname "$cleer_file_path")
 
 function change_includes() {
-    local modified_content
+    local content="$1"
+    local includes=""
 
-    modified_content=$(sed -E '
-        s/import:[[:space:]]*os[[:space:]]*->[[:space:]]*([A-Za-z_][A-Za-z0-9_]*)/#include "\/usr\/local\/bin\/CLEER\/libraries\/operativesystem.h"\nnamespace \1 = os;/g;
-        s/import:[[:space:]]*os/#include "\/usr\/local\/bin\/CLEER\/libraries\/operativesystem.h"/g
-    ' <<< "$1")
+    > "$alias_file"
 
-    echo "$modified_content"
+    while IFS= read -r line; do
+        if [[ "$line" =~ import:[[:space:]]*([A-Za-z_][A-Za-z0-9_]*)([[:space:]]*->[[:space:]]*([A-Za-z_][A-Za-z0-9_]*))? ]]; then
+            library="${BASH_REMATCH[1]}"
+
+            if [ -n "${BASH_REMATCH[3]}" ]; then
+                alias="${BASH_REMATCH[3]}"
+            else
+                alias="$library"
+            fi
+
+            registry=$(grep "^${library}=" /usr/local/bin/CLEER/libraries/libraries.conf)
+
+            if [ -z "$registry" ]; then
+                echo "Unknown library: $library"
+                exit 1
+            fi
+
+            namespace=$(echo "$registry" | cut -d= -f2)
+            header=$(echo "$registry" | cut -d= -f3)
+            echo "$alias=$namespace" >> "$alias_file"
+            includes+="\n#include \"$header\""
+            content=$(echo "$content" | sed \
+                "s/import:[[:space:]]*$library.*//")
+
+        fi
+
+    done <<< "$content"
+
+    echo -e "$includes\n$content"
 }
 
-
 function change_namespaces() {
-    local modified_content
-    modified_content=$(sed -e 's/console\./console::/' \
-                          -e 's/os\./os::/' \
-                          -e 's/url\./url::/'  <<< "$1")
-    echo "$modified_content"
+    local content="$1"
+
+    while IFS="=" read -r alias namespace; do
+        content=$(echo "$content" | sed \
+            -E "s/\b${alias}\./${namespace}::/g")
+
+    done < "$alias_file"
+
+    echo "$content"
 }
 
 function change_write() {

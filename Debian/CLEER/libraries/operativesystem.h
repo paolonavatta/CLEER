@@ -44,8 +44,13 @@ void write(const std::string& filename, const std::string& content) {
 
 // ls Function
 void ls(const std::string& path) {
-    for (const auto& entry : fs::directory_iterator(path)) {
-        std::cout << entry.path().filename() << std::endl;
+    try {
+        for (const auto& entry : fs::directory_iterator(path)) {
+            std::cout << entry.path().filename() << std::endl;
+        }
+    }
+    catch (const fs::filesystem_error& e) {
+        std::cerr << "ls error: " << e.what() << std::endl;
     }
 }
 
