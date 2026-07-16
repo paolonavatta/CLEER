@@ -37,11 +37,10 @@ directory=$(dirname "$cleer_file_path")
 
 function change_includes() {
     local modified_content
-    # Accept "#include<os>" and "#include <os>".
-    modified_content=$(sed -E 's/#include[[:space:]]*<os>/#include "\/usr\/local\/bin\/CLEER\/libraries\/operativesystem.h"/' <<< "$1")
+    # Use import: os
+    modified_content=$(sed -E 's/import:[[:space:]]*os/#include "\/usr\/local\/bin\/CLEER\/libraries\/operativesystem.h"/' <<< "$1")
     echo "$modified_content"
 }
-
 
 
 function change_namespaces() {

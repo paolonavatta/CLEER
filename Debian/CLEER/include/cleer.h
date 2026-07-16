@@ -112,15 +112,7 @@ namespace url {
     void open(const std::string& url) {
         
         std::string command;
-
-        #ifdef _WIN32
-            command = "start " + url;
-        #elif __APPLE__  // macOS
-            command = "open " + url;
-        #else
-            command = "xdg-open " + url;
-        #endif
-
+        command = "xdg-open " + url;
         
         std::system(command.c_str());
     }
