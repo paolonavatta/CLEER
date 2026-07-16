@@ -79,10 +79,15 @@ function change_includes() {
 function change_namespaces() {
     local content="$1"
 
+    # Built-in namespaces (no imports)
+    content=$(echo "$content" | sed \
+        -e 's/console\./console::/g' \
+        -e 's/url\./url::/g')
+
+    # Imported library aliases
     while IFS="=" read -r alias namespace; do
         content=$(echo "$content" | sed \
             -E "s/\b${alias}\./${namespace}::/g")
-
     done < "$alias_file"
 
     echo "$content"
