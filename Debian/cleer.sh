@@ -37,8 +37,12 @@ directory=$(dirname "$cleer_file_path")
 
 function change_includes() {
     local modified_content
-    # Use import: os
-    modified_content=$(sed -E 's/import:[[:space:]]*os/#include "\/usr\/local\/bin\/CLEER\/libraries\/operativesystem.h"/' <<< "$1")
+
+    modified_content=$(sed -E '
+        s/import:[[:space:]]*os[[:space:]]*->[[:space:]]*([A-Za-z_][A-Za-z0-9_]*)/#include "\/usr\/local\/bin\/CLEER\/libraries\/operativesystem.h"\nnamespace \1 = os;/g;
+        s/import:[[:space:]]*os/#include "\/usr\/local\/bin\/CLEER\/libraries\/operativesystem.h"/g
+    ' <<< "$1")
+
     echo "$modified_content"
 }
 
