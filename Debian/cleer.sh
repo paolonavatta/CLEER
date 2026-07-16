@@ -95,7 +95,11 @@ function change_namespaces() {
 
 function change_write() {
     local modified_content
-    modified_content=$(sed -E 's/write\((.*?)(\s*>\s*)(.*?)\)/write(\1, \3)/' <<< "$1")
+
+    modified_content=$(sed -E \
+        's/write\((.*?)([[:space:]]*->[[:space:]]*)(.*?)\)/write(\3, \1)/g' \
+        <<< "$1")
+
     echo "$modified_content"
 }
 
